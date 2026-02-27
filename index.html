@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Someone Special ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ffd6e0, #f3d1ff);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  text-align: center;
+  color: #444;
+}
+
+section {
+  padding: 80px 20px;
+  min-height: 100vh;
+}
+
+h1, h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+}
+
+.landing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gallery img {
+  width: 250px;
+  border-radius: 20px;
+  margin: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+.typewriter {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: auto;
+  min-height: 120px;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin: 20px;
+  transition: 0.3s;
+}
+
+#yesBtn {
+  background: #ff6b9d;
+  color: white;
+}
+
+#noBtn {
+  background: #999;
+  color: white;
+  position: absolute;
+}
+
+.hidden {
+  display: none;
+}
+
+.celebration {
+  font-size: 2rem;
+  color: #ff4081;
+  animation: pop 1s ease forwards;
+}
+
+@keyframes pop {
+  0% {transform: scale(0);}
+  100% {transform: scale(1);}
+}
+</style>
+</head>
+<body>
+
+<!-- 🌸 LANDING SECTION -->
+<section class="landing">
+  <h1>For Someone Special ❤️</h1>
+  <p>Scroll down slowly...</p>
+</section>
+
+<!-- 🌸 MEMORY SECTION -->
+<section>
+  <h2>Beautiful Memories</h2>
+  <div class="gallery">
+    <!-- 🔹 PUT HER IMAGE FILE NAMES HERE -->
+    <img src="her1.jpg" alt="Memory 1">
+    <img src="her2.jpg" alt="Memory 2">
+    <img src="her3.jpg" alt="Memory 3">
+  </div>
+</section>
+
+<!-- 🌸 MESSAGE SECTION -->
+<section>
+  <h2>A Message From My Heart</h2>
+  <div class="typewriter" id="typeText"></div>
+</section>
+
+<!-- 🌸 PROPOSAL SECTION -->
+<section>
+  <h2>Will You Be My Girlfriend? 💖</h2>
+  <div style="position:relative; height:200px;">
+    <button id="yesBtn">Yes 💖</button>
+    <button id="noBtn">No 😅</button>
+  </div>
+  <div id="successMessage" class="hidden celebration">
+    You just made me the happiest person alive! 💕✨
+  </div>
+</section>
+
+<script>
+
+/* ==========================
+   ✨ EDIT YOUR MESSAGE HERE
+========================== */
+
+const message = `
+From the moment I met you, something felt different.
+Your smile makes my worst days brighter.
+You are my favorite notification, my favorite thought,
+and the best part of my everyday.
+Today I just want to ask something simple but important...
+`;
+
+/* ==========================
+   TYPEWRITER EFFECT
+========================== */
+
+let i = 0;
+function typeWriter() {
+  if (i < message.length) {
+    document.getElementById("typeText").innerHTML += message.charAt(i);
+    i++;
+    setTimeout(typeWriter, 40);
+  }
+}
+typeWriter();
+
+/* ==========================
+   YES BUTTON
+========================== */
+
+document.getElementById("yesBtn").addEventListener("click", function() {
+  document.getElementById("successMessage").classList.remove("hidden");
+});
+
+/* ==========================
+   MOVING NO BUTTON
+========================== */
+
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", function() {
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 100);
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+});
+
+</script>
+
+</body>
+</html>
